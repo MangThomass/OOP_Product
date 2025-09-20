@@ -1,7 +1,7 @@
 class product:
     inventory=[]
     product_id_counter=0
-    order_id_counter=0
+    
     def __init__(self,product_id, name, category, quantity, price, supplier): # initialize product attributes
         self.name=name
         self.price=price
@@ -51,7 +51,9 @@ class product:
                 return "Product updated successfully."
         print("Product not found.")
         return "Update failed."
-    
+
+class order(product):
+    order_id_counter=0
     @classmethod
     def place_order(cls): # place order for a product
         cls.order_id_counter += 1 # Increment order ID counter
@@ -79,8 +81,10 @@ print(p1)
 p1=product.delete_product()
 print(p1)
 
-p1=product.place_order()
+p1=order.place_order()
 print(p1)
 
 p1=product.view_products()
 print(p1)
+
+
